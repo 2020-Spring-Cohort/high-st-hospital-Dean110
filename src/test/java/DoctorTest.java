@@ -4,13 +4,15 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.*;
 
-public class EmployeeTest {
+public class DoctorTest {
 
-    private Employee underTest;
+    private Doctor underTest;
+    private Patient testPatient;
 
     @BeforeEach
     void setUp() {
-        underTest = new Employee("Bill", 101, "Heart");
+        underTest = new Doctor("Bill", 101, "Heart");
+        testPatient = new Patient("Bob");
     }
 
     @Test
@@ -18,16 +20,21 @@ public class EmployeeTest {
         assertNotNull(underTest);
     }
     @Test
-    public void doctorsSHouldMake90000(){
+    public void doctorsShouldMake90000(){
         int result = underTest.getPay();
         assertThat(result).isEqualTo(90000);
     }
     @Test
     public void doctorsShouldTreatPatientsInAPositiveWay(){
-        Patient testPatient = new Patient("Bob");
         underTest.treat(testPatient);
         int healthLevel = testPatient.getHealthLevel();
         assertThat(healthLevel).isEqualTo(15);
+    }
+    @Test
+    public void doctorsShouldBeAbleToDrawBlood(){
+        underTest.drawBlood(testPatient);
+        int bloodLevel = testPatient.getBloodLevel();
+        assertThat(bloodLevel).isEqualTo(9);
     }
     @Test
     public void doctorShouldbePaid() {
@@ -41,6 +48,6 @@ public class EmployeeTest {
     @Test
     public void doctorShouldPrintStatus(){
         String result = underTest.getStatus();
-        assertEquals("Name:         Bill | ID:  101 | Specialty:            Heart | Pay: $90000 | Has been paid: false", result);
+        assertEquals("Name:         Bill | ID:  101 | Pay: $90000 | Has been paid: false | Specialty:            Heart", result);
     }
 }
