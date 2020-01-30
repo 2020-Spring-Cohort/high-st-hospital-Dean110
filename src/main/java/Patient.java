@@ -1,7 +1,9 @@
 public class Patient {
+    private final String name;
     private int healthLevel = 10;
     private int bloodLevel = 10;
     public Patient(String name) {
+        this.name = name;
     }
 
     public void feelBetter(int treatmentAmount) {
@@ -23,8 +25,6 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient{" +
-                "healthLevel=" + healthLevel +
-                '}';
+        return name+ " | Health Level: " + healthLevel + " | Blood Level: "+ bloodLevel;
     }
 }
