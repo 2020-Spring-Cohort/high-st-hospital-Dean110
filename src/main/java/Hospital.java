@@ -33,4 +33,12 @@ public class Hospital {
             payee.receivePay();
         }
     }
+
+    public void performBloodDraws() {
+        for(Employee bloodDrawer : employeeList){
+            if(bloodDrawer instanceof MedicalStaff){
+                ((MedicalStaff) bloodDrawer).drawBlood(patient);
+            }
+        }
+    }
 }
