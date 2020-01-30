@@ -51,7 +51,7 @@ Diagram the classes you will need for this program. What are the inheritance rel
 
 Hints:
 
-- There must be a Application Class, Employee Class, and Patient Class
+- There must be a Application Class, Hospital Class, Employee Class, and Patient Class
 - There will be 4 subclasses derived from the Employee Class
 - Think about states and behaviors in regard to what class should do what
 - Classes must use appropriate methods in regard to their type
